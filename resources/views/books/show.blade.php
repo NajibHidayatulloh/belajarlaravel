@@ -1,19 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Buku')
+@section('title', 'Daftar Buku')
 
 @section('content')
+<a href="{{ route('books.index') }}">Detail Buku</a>
 
-    <h2>Detail Buku</h2>
-
-    <p>ID Buku: {{ $id }}</p>
-
-    @if($id)
-        <p>Informasi buku dengan ID {{ $id }}.</p>
-    @else
-        <p>ID buku tidak tersedia.</p>
-    @endif
-
-    <a href="/books">Kembali ke Daftar Buku</a>
+<ul>
+ <h3>{{ $book->title }}</h3>
+ <p>Penulis: {{ $book->author }}</p>
+ <p>Tahun: {{ $book->year }}</p>
+ <p>Stok: {{ $book->stock }}</p>
+</ul>
 
 @endsection

@@ -3,7 +3,7 @@
 @section('title', 'Daftar Buku')
 
 @section('content')
-
+<a href="{{ route('books.create') }}">Tambah Buku Baru</a>
 <ul>
 <h1>Daftar Buku</h1>
 <p>Koleksi buku pada Sistem Informasi Perpustakaan.</p>
@@ -11,16 +11,15 @@
 
     <ul>
        @foreach($books as $book)
-       <li>
  <h3>{{ $book->title }}</h3>
- <p>Penulis: {{ $book->author }}</p>
- <p>Tahun: {{ $book->year }}</p>
- <p>Stok: {{ $book->stock }}</p>
-</li>
-@endforeach
+ <a href="{{ route('books.show', $book) }}">Lihat Detail</a>
+ <a href="{{ route('books.edit', $book) }}">Edit Buku</a>
+ <form action="{{ route('books.destroy', $book) }}" method="POST">
+     @csrf
+     @method('DELETE')
+        <button type="submit">Hapus Buku</button>
+ </form>
+       @endforeach
     </ul>
-
-    <h2>informasi stok</h2>
-    <p>Total stok buku: {{ $stock }}</p>
 
 @endsection
