@@ -3,6 +3,12 @@
 @section('title', 'Daftar Buku')
 
 @section('content')
+
+@if(session('success'))
+    <p>
+        {{ session('success') }}
+    </p>
+    @endif
 <a href="{{ route('books.create') }}">Tambah Buku Baru</a>
 <ul>
 <h1>Daftar Buku</h1>
