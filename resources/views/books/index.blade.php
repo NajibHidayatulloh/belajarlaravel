@@ -18,6 +18,7 @@
     <ul>
        @foreach($books as $book)
  <h3>{{ $book->title }}</h3>
+ <p>Kategori: {{ $book->category?->name ?? 'Belum ada kategori' }}</p>
  <a href="{{ route('books.show', $book) }}">Lihat Detail</a>
  <a href="{{ route('books.edit', $book) }}">Edit Buku</a>
  <form action="{{ route('books.destroy', $book) }}" method="POST">
