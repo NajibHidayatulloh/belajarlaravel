@@ -10,6 +10,11 @@
     </p>
     @endif
 <a href="{{ route('books.create') }}">Tambah Buku Baru</a>
+ <form action="{{ route('logout') }}" method="POST">
+    @csrf
+
+    <button type="submit">Logout</button>
+</form>
 <ul>
 <h1>Daftar Buku</h1>
 <p>Koleksi buku pada Sistem Informasi Perpustakaan.</p>
@@ -26,6 +31,8 @@
      @method('DELETE')
         <button type="submit">Hapus Buku</button>
  </form>
+
+
        @endforeach
     </ul>
 
